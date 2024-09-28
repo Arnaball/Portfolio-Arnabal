@@ -1,0 +1,30 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Actualmente...",
+    title: "Desarrollador Web",
+    company: "Freelance",
+    description:
+      "Desarrollo de una web interactiva y única, diseñada a medida para ofrecer una experiencia excepcional. Siempre priorizo el rendimiento óptimo del proyecto y la protección de los datos de los usuarios, asegurando una navegación fluida y segura",
+    link: "https://twitch.tv/midudev",
+  },
+  {
+    date: "Junio 2022",
+    title: "Desarrollador de bots para discord",
+    company: "Cloudy Environment",
+    description:
+      "Desarrollo de bots para discord utilizando TypeScript y base de datos como Postgre SQL , con un total de 47 encargos personales para diversos servidores con temáticas de varios estilos y actualmente en desarrollo de un bot público.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

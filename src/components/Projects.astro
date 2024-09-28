@@ -1,0 +1,59 @@
+---
+
+import TailwindIcon from './icons/Tailwind.astro'
+import TypeScriptIcon from './icons/Typescript.astro'
+import AstroIcon from './icons/Astro.astro'
+
+
+const TAGS = {
+    ASTRO: {
+        name: 'Astro',
+        class: 'bg-[#4B0082] text-white',
+        icon: AstroIcon
+      
+    },
+    TAILWIND: {
+        name: 'Tailwind CSS',
+        class: 'bg-[#003159] text-white',
+        icon: TailwindIcon
+    },
+    TYPESCRIPT: {
+        name: 'Type Script',
+        class: 'bg-[#2B6CB0] text-white',
+        icon: TypeScriptIcon
+    }
+}
+
+const PROJECTS = [
+    {
+        title: 'SpaceX Relases',
+        description: 'SpaceX Relases es una web en la que utilizando la API oficial podemos recopilar los últimos lanzamientos de SpaceX.',
+        github: 'https://github.com/Arnaball/spacex',
+        image: 'projects/svgl.webp',
+        tags: [TAGS.ASTRO , TAGS.TAILWIND , TAGS.TYPESCRIPT]
+    }
+]
+---
+
+{
+    PROJECTS.map(({ image , title , description , tags}) => (
+        <article>
+            <h3 class="font-semibold text-yellow-200 mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-2 flex-row pb-2">
+                {tags.map(tag => (
+                    
+                    <li>
+                    <span class= {`flex gap-x-2 rounded-full  text-xs py-1 px-2 ${tag.class}`}>
+                        <tag.icon class= "size-4" />
+                        {tag.name}
+                    </span>
+                    </li>
+                
+                ))}
+            </ul>
+            <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`}>
+        </article>
+    ))
+    
+}
