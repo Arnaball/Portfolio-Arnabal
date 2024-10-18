@@ -40,20 +40,24 @@ const navItems = [
 </header>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("header nav a");
+  const initObserver = () => {
+    console.log('INIT Observer')
+    const sections = document.querySelectorAll("section")
+    const navItems = document.querySelectorAll("header nav a")
 
-    // Especifica el tipo para entries
-    const callback: IntersectionObserverCallback = (entries: IntersectionObserverEntry[]) => {
+    const callback = (entries:any[]) => {
       entries.forEach((entry) => {
+        console.log(`Sección observada: ${entry.target.id}, Intersectando: ${entry.isIntersecting}`);
+
         if (entry.isIntersecting) {
+          console.log(`⚡ La sección ${entry.target.id} está visible en el viewport`);
+
           navItems.forEach((item) => {
-            // Compara el aria-label con el id de la sección
             if (item.getAttribute("aria-label") === entry.target.id) {
-              item.classList.add("text-blue-400"); // Agrega clase azul
+              item.classList.add("text-blue-500");
+              console.log(`🔵 Activando enlace para sección: ${entry.target.id}`);
             } else {
-              item.classList.remove("text-blue-400"); // Quita clase azul
+              item.classList.remove("text-blue-500");
             }
           });
         }
@@ -64,24 +68,34 @@ const navItems = [
       root: null,
       rootMargin: "0px",
       threshold: 0.3,
-    });
+    })
 
     sections.forEach((section) => {
-      observer.observe(section); // Observa cada sección
-    });
+      observer.observe(section)
+    })
 
     // Cleanup function
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
-        observer.disconnect();
+        observer.disconnect()
       } else {
         sections.forEach((section) => {
-          observer.observe(section);
-        });
+          observer.observe(section)
+        })
       }
-    };
-  });
+    }
+  }
+
+  // Usar window.onload para llamar la función cuando la página haya cargado completamente
+  window.onload = initObserver
+
+  // Si usas viewTransitions esto se ejecutara solo 1 vez, por cada vez que recargues la página
+  // document.addEventListener("astro:page-load", initObserver)
+  // Este handler se ejecutará cada vez que hagas una navegación interna
+  // document.addEventListener("astro:after-swap", initObserver)
 </script>
+
+
 <style>
   nav {
     animation: nav-shadow 1s linear both;
