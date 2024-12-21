@@ -4,16 +4,19 @@ import Layout from '../layouts/Layout.astro';
 import Projects from '../components/Projects.astro';
 import SectionContainer from '../components/SectionContainer.astro'
 import Experience from '../components/Experience.astro';
-import InstagramIcon from '../components/icons/InstagramIcon.astro'
+import InstagramIcon from '../components/icons/InstagramIcon.astro';
 import DiscordIcon from '../components/icons/DiscordIcon.astro'
 import SocialPill from '../components/SocialPill.astro';
 import BriefcaseIcon from '../components/icons/BriefcaseIcon.astro';
 import CodeIcon from '../components/icons/codeIcon.astro';
+import User from '../components/icons/UserIcon.astro'
+import AboutMe from '../components/AboutMe.astro';
+
 ---
 
 <Layout title="Portfolio de Arnabal - Desarrollador y Programador Web"	 description="Portfolio oficial de Arnabal , programador web con más de 4 años de experencia. Especializado en crear aplicaciones únicas.">
 	<main class="px-4">
-		<SectionContainer class ="py-44 pb-32" id="sobre-mi">
+		<SectionContainer class ="py-44 pb-32">
 		<img class="rounded-full size-12 mb-4" src="https://cdn.discordapp.com/avatars/727902408021114910/a_b22b6adef983d595be0cb8774f5f39c8.gif?size=1024" alt="arnabal photo">
 		<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold  flex flex-row gap-x-4 pb-6 lg:pb-10">
 			Hey, soy Arnabal <div class="flex justify-center items-center"><Badge>Disponible para trabajar</Badge></div></h1>
@@ -34,6 +37,7 @@ import CodeIcon from '../components/icons/codeIcon.astro';
 					Instagram
 				</SocialPill>
 
+
 			
 		</nav>
 		</SectionContainer>
@@ -52,6 +56,15 @@ import CodeIcon from '../components/icons/codeIcon.astro';
 				Proyectos
 			</h2>
 			<Projects />
+		</SectionContainer>
+
+		<SectionContainer id ="sobre-mi">
+			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+				<User class="size-7"/>
+				Sobre mí
+				
+			</h2>
+			<AboutMe />
 		</SectionContainer>
 		</div>
 	</main>
