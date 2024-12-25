@@ -1,2 +1,3 @@
 # PORTFOLIO ARNABAL
-![371771204-16f335a1-6a36-4518-8c0c-e465aab2aaab](https://github.com/user-attachments/assets/0c4d4a88-014e-4487-8f1c-49ed9d50b25c)
+
+![portfolio](https://github.com/user-attachments/assets/0930c7dc-5a8e-449b-b4aa-1985552e2e08)
