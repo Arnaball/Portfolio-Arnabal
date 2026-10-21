@@ -1,16 +1,22 @@
 ---
 import GitHub from './icons/GitHub.astro'
+import WebIcon from './icons/Web.astro'
 import TailwindIcon from './icons/Tailwind.astro'
 import TypeScriptIcon from './icons/Typescript.astro'
 import AstroIcon from './icons/Astro.astro'
 import LinkButton from './linkButton.astro'
+import HTMLIcon from './icons/Html.astro'
+import JavaScriptICON from './icons/Javascript.astro'
+import CSSIcon from './icons/Css.astro'
+import NextIcon from './icons/Next.astro'
+import LuaIcon from './icons/Lua.astro'
+import WebPackIcon from './icons/Webpack.astro'
 
 const TAGS = {
     ASTRO: {
         name: 'Astro',
         class: 'bg-[#4B0082] text-white',
         icon: AstroIcon
-      
     },
     TAILWIND: {
         name: 'Tailwind CSS',
@@ -21,10 +27,47 @@ const TAGS = {
         name: 'Type Script',
         class: 'bg-[#2B6CB0] text-white',
         icon: TypeScriptIcon
+    },
+    HTML: {
+        name: 'HTML',
+        class: 'bg-[#E34F26] text-white',
+        icon: HTMLIcon
+    },
+    JS: {
+        name: 'JavaScript',
+        class: 'bg-[#C2AB00] text-white',
+        icon: JavaScriptICON
+    },
+    CSS: {
+        name: 'CSS',
+        class: 'bg-[#1572B6] text-white',
+        icon: CSSIcon
+    },
+   WEBPACK: {
+    name: 'Webpack',
+    class: 'bg-[#1C78C0] text-white',
+    icon: WebPackIcon
+    },
+    NEXTJS: {
+        name: 'Next',
+        class: 'bg-[#1A1A1A] text-white',
+        icon: NextIcon
+    }, 
+    LUA: {
+        name: 'Lua',
+        class: 'bg-[#1E3A5F] text-white',
+        icon: LuaIcon
     }
 }
 
 const PROJECTS = [
+    {
+        title: 'Astral Scripts - Mi emprendimiento',
+        description: 'Astral Scripts es la tienda en la que vendo los scrits desarrollados por mí para la plataforma de fiveM, todo el contenido ha sido elaborado en base a mi esfuerzo y dedicación como la edición del contenido entre otros aspectos.',
+        web: 'https://astralscripts.tebex.io/',
+        image: 'projects/astralscripts.webp',
+        tags: [TAGS.LUA , TAGS.TAILWIND , TAGS.TYPESCRIPT, TAGS.HTML, ]
+    },
     {
         title: 'SpaceX Relases - Web latest releases',
         description: 'SpaceX Relases es una web en la que utilizando la API oficial podemos recopilar los últimos lanzamientos de SpaceX.',
@@ -38,16 +81,33 @@ const PROJECTS = [
         github: 'https://github.com/Arnaball/Portfolio-Arnabal',
         image: '/portfolio.png',
         tags: [TAGS.ASTRO , TAGS.TAILWIND]
+    },
+        {
+        title: 'Tienda de ordenadores - Práctica de WebPack',
+        description: 'Esta web fue realizada con el propósito de poner en práctica los conocimientos adquiridos de la tecnología WebPack.',
+        github: 'https://github.com/Arnaball/webpack_pcs_practice',
+        image: 'projects/webpack-practise.webp',
+        web: 'https://webpackpractise.netlify.app/',
+        tags: [ TAGS.HTML, TAGS.CSS, TAGS.JS, TAGS.WEBPACK]
+    },
+     {
+        title: 'FiveM Exposed',
+        description: 'Esta web fue idea de tener una manera en la que almacenar perfiles que utilizaban trampas en la plataforma de "fiveM"',
+        image: 'projects/fivemexposed-image.webp',
+        web: 'https://fivemexposed.com',
+        tags: [ TAGS.TYPESCRIPT, TAGS.JS, TAGS.NEXTJS]
     }
+    
+    
 ]
 ---
 <div class="flex flex-col gap-y-16">
 {
-    PROJECTS.map(({ image , title  , description , tags , github}) => (
+    PROJECTS.map(({ image , title  , description , tags , web, github}) => (
         <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
             <div>
                     <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-                    <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`}>
+                    <img class="rounded shadow-2xl size-50 shadow-white/10" src={image} alt={`Captura de pantalla del proyecto ${image}`}>
                     </div>
             </div>
                 <div>
@@ -55,7 +115,6 @@ const PROJECTS = [
                     <div class="flex flex-wrap mt-2">
                         <ul class="flex flex-row mb-2 gap-x-2">
                             {tags.map(tag => (
-                    
                                 <li>
                                 <span class= {`flex gap-x-2 rounded-full  text-xs py-1 px-2 ${tag.class}`}>
                                     <tag.icon class= "size-4" />
@@ -73,12 +132,20 @@ const PROJECTS = [
               Code
               
             </LinkButton>
+        
           )}
+          {web && (
+             <LinkButton href={web}>
+              <WebIcon class="size-6" />
+                Desplegar
+            </LinkButton>
+          )
+              
+            }
          
         </footer>
             
-                    </div>
-            </div>
+          
         </article>
     ))   
 }

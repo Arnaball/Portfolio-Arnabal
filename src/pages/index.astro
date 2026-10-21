@@ -4,8 +4,9 @@ import Layout from '../layouts/Layout.astro';
 import Projects from '../components/Projects.astro';
 import SectionContainer from '../components/SectionContainer.astro'
 import Experience from '../components/Experience.astro';
-import InstagramIcon from '../components/icons/InstagramIcon.astro';
+import GitHubIcon  from '../components/icons/GitHub.astro';
 import DiscordIcon from '../components/icons/DiscordIcon.astro'
+import DownloadIcon from '../components/icons/Download.astro'
 import SocialPill from '../components/SocialPill.astro';
 import BriefcaseIcon from '../components/icons/BriefcaseIcon.astro';
 import CodeIcon from '../components/icons/codeIcon.astro';
@@ -22,21 +23,23 @@ import ArnabalIcon from '../../public/arnabal.png'
 		<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold  flex flex-row gap-x-4 pb-6 lg:pb-10">
 			Hey, soy Arnabal <div class="flex justify-center items-center"><Badge>Disponible para trabajar</Badge></div></h1>
 		<h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
-			+4 años de experencia. <span class="text-yellow-200">Desarollador web</span> de Granada , España 🇪🇸.
-			Especializado en el desarollo de aplicaciones web únicas.
+			+6 años de experencia desarrollando <span class="text-yellow-200">aplicaciones web</span> por mi cuenta, de Granada , España 🇪🇸.
+			Apasionado por el <span class="text-yellow-200">desarrollo</span>, la <span class="text-yellow-200">investigación</span> y la <span class="text-yellow-200">innovación</span>.
 		</h2>
 		<nav class="flex gap-x-4 mt-8">
 		
+				<SocialPill href="https://github.com/Arnaball">
+					<GitHubIcon class="size-4 md:size-6"/>
+					GitHub
+				</SocialPill> 
+				
 				<SocialPill href="https://discord.gg/c8TxKN83Hr">
-					<DiscordIcon class="size-4 md:size-6"/>
-					Discord
+					<DownloadIcon class="size-4 md:size-6"/>
+					Descargar Curriculum
 				</SocialPill> 
 		
 		
-				<SocialPill href ="https://www.instagram.com/aalejandro_ha/">
-					<InstagramIcon class="size-4 md:size-6"/>
-					Instagram
-				</SocialPill>
+				
 
 
 			
