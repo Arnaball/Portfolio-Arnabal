@@ -8,8 +8,8 @@
     `}
 
 { ... Astro.props}
-target="_blank"
-rel="noopener noreferrer"
+target={Astro.props.download ? undefined : "_blank"}
+rel={Astro.props.download ? undefined : "noopener noreferrer"}
 > 
 
     <slot />
